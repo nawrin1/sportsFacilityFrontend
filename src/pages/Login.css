@@ -1,0 +1,51 @@
+/* .login-cover {
+    position: absolute;
+    top: 25%; 
+    left: 20%;  
+    transition: left 1s ease-in; 
+}
+
+.login-main:hover .login-cover {
+    left: -100vw; 
+}
+
+.login-main {
+    position: relative; 
+}
+ */
+
+
+ .login-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease-in;
+    background-image: linear-gradient(to top, black, white); 
+}
+
+
+/* .login-cover:hover {
+    transform: translateX(-200%); 
+} */
+
+.container {
+    position: relative;
+    width: 50%;
+    height: 60%;
+}
+
+.container:hover .login-cover {
+    /* left: -200%; */
+    transform: translateX(-200%); 
+}
+
+
+.login-main {
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+
