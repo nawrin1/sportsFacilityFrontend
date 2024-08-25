@@ -1,18 +1,4 @@
-/* .login-cover {
-    position: absolute;
-    top: 25%; 
-    left: 20%;  
-    transition: left 1s ease-in; 
-}
 
-.login-main:hover .login-cover {
-    left: -100vw; 
-}
-
-.login-main {
-    position: relative; 
-}
- */
 
 
  .login-cover {
@@ -24,17 +10,13 @@
 }
 
 
-/* .login-cover:hover {
-    transform: translateX(-200%); 
-} */
-
 .container {
     position: relative;
    
 }
 
 .container:hover .login-cover {
-    /* left: -200%; */
+    
     transform: translateX(-200%); 
 }
 

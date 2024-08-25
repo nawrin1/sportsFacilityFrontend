@@ -97,3 +97,66 @@
     background-color: black;
 }
 
+.transform  {
+    transition: letter-spacing 0.5s ease-in-out;
+  }
+  
+  .transform:hover  {
+    letter-spacing: 1em;
+    color:black ;
+  }
+
+
+  /* .menu-bar {
+    width: 50%;
+    height: 2.5rem;
+    background-color: slategray;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    transform: translateY(-200%);
+    transition: transform 10s ease-in-out;
+  
+}
+
+.menu-bar.open {
+    transform: translateY(0);
+} */
+
+.menu-bar {
+    width: 50%;
+    height: 2.5rem;
+    
+    border-radius: 50px;
+    position: absolute;
+    top: -2.5rem; 
+    left: 30%;
+    opacity:0;
+    transition: opacity 1s ease-in-out; 
+}
+
+.menu-bar.open {
+    top: 0; 
+    opacity:1;
+}
+
+.close{
+    opacity:0;
+}
+
+.active {
+    color: #bdc468;
+    
+    
+  }
+
+.a:hover{
+    color: #bdc468;
+
+
+}
+
+
+  
+
