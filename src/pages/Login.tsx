@@ -42,7 +42,7 @@ const Login = () => {
               navigate(`/`)
 
         }catch(err){
-            toast.error(err.message, { id: toastId, duration: 2000 });
+            toast.error("Something went wrong", { id: toastId, duration: 2000 });
 
         }
     };
@@ -84,7 +84,7 @@ const Login = () => {
                                 />
                                 {errors.password && <span className='text-red-600 text-[14px]'>This field is required.</span>}
                             </div>
-                            <button type="submit" className='bg-black text-white px-4 py-2 rounded-md hover:bg-gray-500 hover:text-black font-serif'>
+                            <button type="submit" className='bg-black font-semibold text-white px-4 py-2 rounded-md hover:bg-gray-500 hover:text-black font-serif'>
                                 LOGIN
                             </button>
                         </form>

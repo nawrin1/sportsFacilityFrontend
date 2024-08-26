@@ -57,7 +57,7 @@ const Register = () => {
 
     return (
         <div className="bg-black w-full h-screen flex flex-col mx-auto items-center justify-center gap-6 p-2">
-            <div className='container z-50 lg:w-[50%] lg:h-[70%]  md:w-[50%] md:h-[88%] w-[75%] h-[85%]'>
+            <div className='container z-50 lg:w-[50%] lg:h-[70%]  md:w-[50%] md:h-[75%] w-[75%] h-[85%]'>
                 <div className="login-cover z-30 p-7 flex items-center justify-between rounded-sm">
                     <div className='flex justify-items-center justify-center h-[70%] w-full'>
                         <img src={image1} alt="" />
@@ -119,7 +119,7 @@ const Register = () => {
                                 />
                                  {errors.email && <span className='text-red-600 text-[14px]'>This field is required.</span>}
                             </div>
-                            <button type="submit" className='bg-black text-white px-3 py-1 lg:px-4 lg:py-2 md:px-3 md:py-1 rounded-md hover:bg-gray-500 hover:text-black font-serif'>
+                            <button type="submit" className='bg-black text-white px-3 py-1 lg:px-4 lg:py-2 md:px-3 md:py-1 rounded-md hover:bg-gray-500 font-semibold hover:text-black font-serif'>
                                 SIGN UP
                             </button>
                         </form>
@@ -135,3 +135,16 @@ const Register = () => {
 };
 
 export default Register;
+
+
+
+
+{/* <img src={img1} alt="" />
+<div className='absolute lg:top-[20%] lg:left-[35%] left-[25%] top-[10%] md:left-[25%]'>
+  <p className='font-serif lg:text-6xl text-3xl md:text-5xl text-white font-semibold '>S P O R T <span> E A S E</span></p>
+</div>
+<div className='absolute lg:top-[32%] lg:left-[40%] top-[20%] left-[33%] md:left-[32%]'>
+
+<p className='font-serif lg:text-3xl text-[14px] md:text-2xl text-white font-semibold font-serif text-center lg:leading-10 '>Unleash Your Potential <br />Elevate Your Game</p>
+
+</div> */}
