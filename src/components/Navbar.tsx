@@ -170,7 +170,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { logout, selectCurrentUser, useCurrentUserToken } from "../redux/features/auth/authSlice";
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { ImCross } from 'react-icons/im';
+
 import { RxCrossCircled } from 'react-icons/rx';
 
 const Navbar = () => {
@@ -196,7 +196,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="bg-black sticky top-0 h-auto pt-2  z-1000 ">
+        <div className="bg-black sticky top-0 h-auto pt-2  z-50 ">
             <div className="nav sticky flex justify-between rounded-full pt-2 px-2 pb-3 top-0 font-serif border-b-[1px] border-gray-500 font-bold w-full h-14 text-white mx-auto items-center max-w-[1200px]">
             <div className="hamburger-icon text-xl md:text-2xl  pt-4 px-2 lg:hidden" onClick={toggleSidebar}>
                     <GiHamburgerMenu />

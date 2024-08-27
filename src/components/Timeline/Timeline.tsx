@@ -1,10 +1,10 @@
 
 import { BsEmojiSmile } from 'react-icons/bs';
-import { CiStar } from 'react-icons/ci';
+
 import { FaGenderless } from 'react-icons/fa';
-import { HiOutlineEmojiHappy } from 'react-icons/hi';
+
 import { IoIosTimer } from 'react-icons/io';
-import { IoSchool } from 'react-icons/io5';
+
 import { MdOutlinePayments, MdWorkOutline } from 'react-icons/md';
 import { RxDashboard } from 'react-icons/rx';
 import { TbBrandBooking } from 'react-icons/tb';

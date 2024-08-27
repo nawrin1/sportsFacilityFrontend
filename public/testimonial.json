@@ -1,0 +1,25 @@
+{
+    "users": [
+      {
+        "name": "John Doe",
+        "review": "Excellent facility!"
+      },
+      {
+        "name": "Jane Doe",
+        "review": "Good experience, but could be improved."
+      },
+      {
+        "name": "Michael Smith",
+        "review": "Nice amenities, needs better cleanliness."
+      },
+      {
+        "name": "Emily Johnson",
+        "review": "Great value for money."
+      },
+      {
+        "name": "David Wilson",
+        "review": "Okay facility, service needs work."
+      }
+    ]
+  }
+  
