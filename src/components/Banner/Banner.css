@@ -1,0 +1,8 @@
+.book:hover{
+    background-color: white;
+}
+
+.book {
+    z-index: 100; 
+   
+}

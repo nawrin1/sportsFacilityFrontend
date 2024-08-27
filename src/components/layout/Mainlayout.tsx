@@ -7,7 +7,7 @@ const Mainlayout = () => {
         <div>
             <Navbar></Navbar>
             <Outlet></Outlet>
-            <div className="w-full h-screen bg-black"> h</div>
+          
             
         </div>
     );

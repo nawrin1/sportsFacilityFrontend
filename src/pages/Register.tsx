@@ -139,12 +139,3 @@ export default Register;
 
 
 
-{/* <img src={img1} alt="" />
-<div className='absolute lg:top-[20%] lg:left-[35%] left-[25%] top-[10%] md:left-[25%]'>
-  <p className='font-serif lg:text-6xl text-3xl md:text-5xl text-white font-semibold '>S P O R T <span> E A S E</span></p>
-</div>
-<div className='absolute lg:top-[32%] lg:left-[40%] top-[20%] left-[33%] md:left-[32%]'>
-
-<p className='font-serif lg:text-3xl text-[14px] md:text-2xl text-white font-semibold font-serif text-center lg:leading-10 '>Unleash Your Potential <br />Elevate Your Game</p>
-
-</div> */}
