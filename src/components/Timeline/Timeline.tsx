@@ -1,12 +1,20 @@
 
+import { BsEmojiSmile } from 'react-icons/bs';
 import { CiStar } from 'react-icons/ci';
+import { FaGenderless } from 'react-icons/fa';
+import { HiOutlineEmojiHappy } from 'react-icons/hi';
+import { IoIosTimer } from 'react-icons/io';
 import { IoSchool } from 'react-icons/io5';
-import { MdWorkOutline } from 'react-icons/md';
+import { MdOutlinePayments, MdWorkOutline } from 'react-icons/md';
+import { RxDashboard } from 'react-icons/rx';
+import { TbBrandBooking } from 'react-icons/tb';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 const Timeline = () => {
     return (
         <div className='relative -z-30 bg-black  pt-20'>
+
+            <h2 className='text-center font-serif font-bold lg:text-6xl md:text-4xl text-2xl text-white pt-10 pb-16'>HOW IT WORKS</h2>
             <VerticalTimeline>
   {/* <VerticalTimelineElement
     className="vertical-timeline-element--work no-bottom-border"
@@ -46,7 +54,7 @@ const Timeline = () => {
     contentStyle={{ background: '#222222', color: 'white' }} 
     
     iconStyle={{ background: 'black', color: '#fff' }}
-    icon={<MdWorkOutline />}
+    icon={<IoIosTimer />}
   >
     
     <p className='font-serif '>
@@ -59,7 +67,7 @@ const Timeline = () => {
   
     contentStyle={{ background: '#222222', color: 'white' }} 
     iconStyle={{ background: 'black', color: '#fff' }}
-    icon={<MdWorkOutline />}
+    icon={<TbBrandBooking />}
   >
    
     <p className='font-serif '>
@@ -73,7 +81,7 @@ const Timeline = () => {
     contentStyle={{ background: '#222222', color: 'white' }} 
     
     iconStyle={{ background: 'black', color: '#fff' }}
-    icon={<MdWorkOutline />}
+    icon={<MdOutlinePayments />}
   >
    
    <p className='font-serif '>
@@ -86,7 +94,7 @@ const Timeline = () => {
     date="Manage Your Booking"
     contentStyle={{ background: '#222222', color: 'white' }} 
     iconStyle={{ background: 'black', color: '#fff' }}
-    icon={<IoSchool />}
+    icon={<RxDashboard />}
   >
 
     <p>
@@ -98,7 +106,7 @@ const Timeline = () => {
     date="Enjoy the Facility"
     contentStyle={{ background: '#222222', color: 'white' }} 
     iconStyle={{ background: 'black', color: '#fff' }}
-    icon={<IoSchool />}
+    icon={<BsEmojiSmile/>}
   >
 
     <p className='font-serif'>
@@ -107,8 +115,9 @@ const Timeline = () => {
   </VerticalTimelineElement>
 
   <VerticalTimelineElement
-    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-    icon={<CiStar />}
+    iconStyle={{ background: 'yellow', color: 'black' }}
+    
+    icon={<FaGenderless />}
   />
 </VerticalTimeline>
             
