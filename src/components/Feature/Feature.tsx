@@ -8,7 +8,7 @@ import './Feature.css'
 
 const Feature = () => {
     return (
-        <div className="bg-black lg:h-[900px] md:h-[600px] h-[300px] relative -z-20">
+        <div className="bg-black lg:h-[900px] md:h-[600px] h-[300px] relative -z-20 pb-40">
             <div className='flex w-full h-[900px] relative'>
               
             <div className='w-1/2 lg:h-[900px] md:h-[600px] h-[300px] image-container  flex justify-center items-center relative '>

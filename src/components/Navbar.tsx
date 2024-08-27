@@ -166,7 +166,7 @@ import { useState } from 'react';
 import { MdOutlineSportsGymnastics } from "react-icons/md";
 import './Navbar.css';
 import { CgProfile } from "react-icons/cg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { logout, selectCurrentUser, useCurrentUserToken } from "../redux/features/auth/authSlice";
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -179,9 +179,12 @@ const Navbar = () => {
     const user = useAppSelector(selectCurrentUser);
     const token = useAppSelector(useCurrentUserToken);
     const dispatch = useAppDispatch();
+    const navigate=useNavigate()
 
     const handleLogout = () => {
         dispatch(logout());
+        navigate("/")
+
     };
 
     const toggleMenu = () => {
