@@ -220,7 +220,7 @@ const Navbar = () => {
                             <NavLink to='/aboutus' className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>About Us</li>
                             </NavLink>
-                            <NavLink to='/products' className={({ isActive }) => isActive ? "active" : ""}>
+                            <NavLink to="/contactus" className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>Contact Us</li>
                             </NavLink>
                             <NavLink to='/products' className={({ isActive }) => isActive ? "active" : ""}>
@@ -267,7 +267,7 @@ const Navbar = () => {
                             <NavLink to='/aboutus' className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>About Us</li>
                             </NavLink>
-                            <NavLink to='/products' className={({ isActive }) => isActive ? "active" : ""}>
+                            <NavLink to="/contactus" className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>Contact Us</li>
                             </NavLink>
                             <NavLink to='/products' className={({ isActive }) => isActive ? "active" : ""}>

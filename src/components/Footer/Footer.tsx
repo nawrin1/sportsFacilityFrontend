@@ -52,7 +52,7 @@ const Footer = () => {
                     </svg>
                 </a>
                 </div>
-                <p><NavLink to='/aboutus'><span className="text-[15px] text-[#9e9e9e] hover:text-white">About Us </span></NavLink> <span className="text-[15px] hover:text-white text-[#9e9e9e]"> Contact Us</span> </p>
+                <p><NavLink to='/aboutus'><span className="text-[15px] text-[#9e9e9e] hover:text-white">About Us </span></NavLink> <NavLink to='/contactus'><span className="text-[15px] hover:text-white text-[#9e9e9e]"> Contact Us</span></NavLink> </p>
             </nav>
             </footer>
             
