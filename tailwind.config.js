@@ -14,5 +14,7 @@ export default {
       'serif-black-italic': ['"Serif Black Italic"', 'sans-serif'],
     },
   },
-  plugins: [],
-}
+ plugins: [
+    require('daisyui')
+  ],   
+}             

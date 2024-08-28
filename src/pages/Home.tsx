@@ -1,7 +1,9 @@
 import Banner from "../components/Banner/Banner";
 import Feature from "../components/Feature/Feature";
+import Footer from "../components/Footer/Footer";
 import Testimonial from "../components/Testimonial/Testimonial";
 import Timeline from "../components/Timeline/Timeline";
+import Video from "../components/Video/Video";
 
 
 const Home = () => {
@@ -11,11 +13,10 @@ const Home = () => {
             <Feature></Feature>
             <Timeline></Timeline>
             <Testimonial></Testimonial>
+            <Video></Video>
+            <Footer></Footer>
 
-            <div className="bg-black h-[800px] w-full">
-                <h2>hi</h2>
 
-            </div>
             
         </div>
     );

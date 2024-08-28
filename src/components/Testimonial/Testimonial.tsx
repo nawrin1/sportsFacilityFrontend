@@ -136,7 +136,7 @@ const Testimonial = () => {
 </div>
 
 </div>
-<div className="lg:w-[40%] md:w-[50%] flex text-center items-center justify-center ">
+<div className="lg:w-[40%] md:w-[50%] lg:pr-4 flex text-center items-center justify-center ">
     <p className="lg:text-5xl text-white font-serif font-bold text-center text-2xl ">SWIPE TO EXPLORE <br />CUSTOMER REVIEWS</p>
 
 
