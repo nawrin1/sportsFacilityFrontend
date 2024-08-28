@@ -209,7 +209,7 @@ const Navbar = () => {
 
 
                 <div onClick={toggleMenu} className="cursor-pointer text-[#f2ede6]  ">
-                    <div className={`menu-bar flex justify-center  relative -left-3 lg:w-[50%] lg:h-[2.5rem] w-0 h-0 pt-2 border-[1px] shadow-md shadow-[#414141] mt-[6px] ${isMenuOpen ? 'open' : ''}`}>
+                    <div className={`menu-bar flex justify-center items-center relative -left-3 lg:w-[50%] lg:h-[2.5rem] w-0 h-0 pt-2 border-[1px] shadow-md shadow-[#414141] mt-[6px] ${isMenuOpen ? 'open' : ''}`}>
                         <ul className="menu flex menu-horizontal space-x-8 text-[16px]">
                             <NavLink to='/' className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>Home</li>

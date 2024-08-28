@@ -12,7 +12,8 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 const Timeline = () => {
     return (
-        <div className='relative -z-30 bg-black  pt-20'>
+      // -z-30 chilo
+        <div className='relative z-0 bg-black  pt-20'>
 
             <h2 className='text-center font-serif font-bold lg:text-6xl md:text-4xl text-2xl text-white pt-10 pb-16'>HOW IT WORKS</h2>
             <VerticalTimeline>
@@ -122,6 +123,8 @@ const Timeline = () => {
 </VerticalTimeline>
             
         </div>
+
+
     );
 };
 

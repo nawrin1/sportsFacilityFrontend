@@ -14,7 +14,7 @@ const Home = () => {
             <Timeline></Timeline>
             <Testimonial></Testimonial>
             <Video></Video>
-            <Footer></Footer>
+           
 
 
             

@@ -1,0 +1,23 @@
+.about-container {
+    position: relative;
+    width: 100%;
+    
+    overflow: hidden;
+}
+
+.about-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.aboutover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    background-image: linear-gradient(to top, black, #054c7b91,#0b0f19  );
+    pointer-events: none; 
+   
+}
