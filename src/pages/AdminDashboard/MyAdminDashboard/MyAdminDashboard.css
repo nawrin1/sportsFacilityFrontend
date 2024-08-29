@@ -1,0 +1,11 @@
+.border-text {
+    
+    font-weight: bold;
+    color: transparent;
+    
+    display: inline-block;
+    padding: 10px 20px; 
+   
+    -webkit-text-stroke: 1px white; 
+  }
+  

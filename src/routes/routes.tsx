@@ -9,7 +9,10 @@ import UserDashboard from '../pages/UserDashboard/UserDashboard';
 import ProtectedRoute from '../components/layout/ProtectedRoute';
 import MyBooking from '../pages/UserDashboard/MyBooking/MyBooking';
 import MyDashboard from '../pages/UserDashboard/MyDashboard/MyDashboard';
+
 import MyBookingDetails from '../pages/UserDashboard/MyBookingDetails/MyBookingDetails';
+import AdminDashboard from '../pages/AdminDashboard/AdminDashboard';
+import MyAdminDashboard from '../pages/AdminDashboard/MyAdminDashboard/MyAdminDashboard';
 
 
 const router = createBrowserRouter([
@@ -58,6 +61,25 @@ const router = createBrowserRouter([
         path:`mybooking/:id`,
         element:<MyBookingDetails></MyBookingDetails>
       }
+    ]
+    
+  },
+  {
+    path:'admindashboard',
+    element:<ProtectedRoute role="admin"><AdminDashboard></AdminDashboard></ProtectedRoute>,
+    children:[
+      // {
+      //   path:'mybooking',
+      //   element:<MyBooking></MyBooking>
+      // },
+      {
+        path:'mydash',
+        element:<MyAdminDashboard></MyAdminDashboard>
+      },
+      // {
+      //   path:`mybooking/:id`,
+      //   element:<MyBookingDetails></MyBookingDetails>
+      // }
     ]
     
   }
