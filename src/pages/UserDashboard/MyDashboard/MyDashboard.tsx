@@ -6,23 +6,23 @@ import { motion } from "framer-motion";
 import video from '../../../assets/1466464-uhd_4096_2160_24fps.mp4'
 
 import img1 from '../../../assets/profile (1).png'
-import { BsThreeDots } from "react-icons/bs";
+
 import { useGetUserQuery } from "../../../redux/features/user/user.api";
+import { ThreeDots } from "react-loader-spinner";
 const MyDashboard = () => {
     const { data,isLoading } = useGetUserQuery(undefined);
     if(isLoading || !data){
       return <div className="min-h-screen flex justify-center items-center">
-        <BsThreeDots
-      visible={true}
-      height="80"
-      width="80"
-      color="#4fa94d"
-      radius="9"
-      ariaLabel="three-dots-loading"
-      wrapperStyle={{}}
-      wrapperClass=""
-      />
-      </div>
+        <ThreeDots
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+/>
+</div>
     }
   
   

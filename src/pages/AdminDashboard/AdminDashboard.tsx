@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai"; 
 import { Divider } from "@mui/material";
 
-import { MdDashboardCustomize, MdOutlineDashboardCustomize } from "react-icons/md";
+import { MdDashboardCustomize } from "react-icons/md";
 import './AdminDashboard.css'
 
 
@@ -59,15 +59,15 @@ const AdminDashboard = () => {
             </NavLink>
           </li>
           <Divider variant="middle" component="li" />
-          {/* <li className="font-semibold text-lg text-center flex justify-center hover:text-[#fffff2] items-center hover:bg-[#414141]">
+          <li className="font-semibold text-lg text-center flex justify-center hover:text-[#fffff2] items-center hover:bg-[#414141]">
             <NavLink
-              to="/userdashboard/mybooking"
+              to="/admindashboard/allbookings"
 
               className={({ isActive }) => isActive ? "activelink hover:text-white flex items-center gap-3 p-2 rounded transition duration-200" : "flex items-center gap-3 p-2 rounded transition duration-200"}
             >
-              <p className="text-xl font-serif text-center">My Bookings</p>
+              <p className="text-xl font-serif text-center">All Bookings</p>
             </NavLink>
-          </li> */}
+          </li>
         </ul> 
       </div>
     </div>

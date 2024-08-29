@@ -6,25 +6,25 @@ import video from '../../../assets/admin.mp4'
 
 
 import img1 from '../../../assets/setting.png'
-import { BsThreeDots } from "react-icons/bs";
+
 import { useGetUserQuery } from "../../../redux/features/user/user.api";
 import './MyAdminDashboard.css'
+import { ThreeDots } from "react-loader-spinner";
 
 const MyAdminDashboard = () => {
     const { data,isLoading } = useGetUserQuery(undefined);
     if(isLoading || !data){
       return <div className="min-h-screen flex justify-center items-center">
-        <BsThreeDots
-      visible={true}
-      height="80"
-      width="80"
-      color="#4fa94d"
-      radius="9"
-      ariaLabel="three-dots-loading"
-      wrapperStyle={{}}
-      wrapperClass=""
-      />
-      </div>
+        <ThreeDots
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+/>
+</div>
     }
   
   

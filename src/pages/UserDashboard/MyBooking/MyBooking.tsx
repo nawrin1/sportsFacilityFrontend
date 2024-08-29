@@ -1,10 +1,11 @@
-import { BsThreeDots } from "react-icons/bs";
+
 import { useDeleteMyBookingMutation, useGetMyBookingQuery } from "../../../redux/features/user/user.api";
-import { Box, Fade, Input } from "@mui/material";
+
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { ThreeDots } from "react-loader-spinner";
 
 
 const MyBooking = () => {
@@ -12,17 +13,16 @@ const MyBooking = () => {
     const [deleteMyBooking]=useDeleteMyBookingMutation()
     if(isLoading || !data){
       return <div className="min-h-screen flex justify-center items-center">
-        <BsThreeDots
-      visible={true}
-      height="80"
-      width="80"
-      color="#4fa94d"
-      radius="9"
-      ariaLabel="three-dots-loading"
-      wrapperStyle={{}}
-      wrapperClass=""
-      />
-      </div>
+        <ThreeDots
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+/>
+</div>
     }
 
     const handleDelete = (_id: string) => {
@@ -75,8 +75,8 @@ const MyBooking = () => {
             <tbody className="text-white">
               
             {data?.data
-  .filter((each) => each.isBooked !== "canceled") // Adjust the filter condition if needed
-  .map((each, idx) => (
+  .filter((each) => each.isBooked !== "canceled") 
+  .map((each, idx:number) => (
     <tr key={idx} className="border-b-1 border-[#565656]">
       <td>
         <div className="font-bold">{each.facility.name}</div>

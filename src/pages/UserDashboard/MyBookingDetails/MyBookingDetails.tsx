@@ -2,7 +2,8 @@ import './MyBookingDetails.css'
 import img1 from '../../../assets/mybooking.jpg'
 import { useParams } from 'react-router-dom';
 import { useSingleMyBookingQuery } from '../../../redux/features/user/user.api';
-import { BsThreeDots } from 'react-icons/bs';
+
+import { ThreeDots } from 'react-loader-spinner';
 
 const MyBookingDetails = () => {
     const { id} = useParams();
@@ -11,17 +12,16 @@ const MyBookingDetails = () => {
     console.log(data)
     if(isLoading || !data){
         return <div className="min-h-screen flex justify-center items-center">
-          <BsThreeDots
-        visible={true}
-        height="80"
-        width="80"
-        color="#4fa94d"
-        radius="9"
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        />
-        </div>
+          <ThreeDots
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+/>
+</div>
       }
   
 

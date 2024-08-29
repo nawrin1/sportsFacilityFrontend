@@ -13,6 +13,7 @@ import MyDashboard from '../pages/UserDashboard/MyDashboard/MyDashboard';
 import MyBookingDetails from '../pages/UserDashboard/MyBookingDetails/MyBookingDetails';
 import AdminDashboard from '../pages/AdminDashboard/AdminDashboard';
 import MyAdminDashboard from '../pages/AdminDashboard/MyAdminDashboard/MyAdminDashboard';
+import AllBooking from '../pages/AdminDashboard/AllBooking/AllBooking';
 
 
 const router = createBrowserRouter([
@@ -68,10 +69,10 @@ const router = createBrowserRouter([
     path:'admindashboard',
     element:<ProtectedRoute role="admin"><AdminDashboard></AdminDashboard></ProtectedRoute>,
     children:[
-      // {
-      //   path:'mybooking',
-      //   element:<MyBooking></MyBooking>
-      // },
+      {
+        path:'allbookings',
+        element:<AllBooking></AllBooking>
+      },
       {
         path:'mydash',
         element:<MyAdminDashboard></MyAdminDashboard>
