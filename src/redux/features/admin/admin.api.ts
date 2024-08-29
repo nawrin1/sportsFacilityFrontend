@@ -8,6 +8,7 @@ const adminApi = baseApi.injectEndpoints({
         method: 'GET',
        
       }),
+      providesTags: ["facility"]
     }),
     createAdmin: builder.mutation({
       query: (data) => ({
@@ -18,22 +19,41 @@ const adminApi = baseApi.injectEndpoints({
        
       }),
     }),
-    // getMyBooking: builder.query({
-    //   query: () => ({
-    //     url: 'bookings/user',
-    //     method: 'GET',
+    getAllFacility: builder.query({
+      query: () => ({
+        url: '/facility',
+        method: 'GET',
        
-    //   }),
-    // }),
-    // deleteMyBooking: builder.mutation({
+      }),
+      providesTags: ["facility"]
+    }),
+    deleteFacility: builder.mutation({
         
-    //   query: (id) => ({
-    //     url: `/bookings/${id}`,
-    //     method: 'DELETE',
+        
+      query: (id) => ({
+        url: `/facility/${id}`,
+        method: 'DELETE',
        
        
-    //   }),
-    // }),
+      }),
+      invalidatesTags: ["facility"]
+    }),
+    updateFacility: builder.mutation({
+      
+        query: (facility) =>  {
+         
+          console.log(facility.options)
+
+            return {
+              url: `/facility/${facility.id}`,
+              method: "PUT",
+              body:facility.options
+             
+              
+            };
+          },
+        invalidatesTags: ["facility"]
+    }),
     // singleMyBooking: builder.query({
         
     //   query: (id) => ({
@@ -48,4 +68,4 @@ const adminApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {useGetAllBookingsQuery,useCreateAdminMutation } = adminApi;
+export const {useGetAllBookingsQuery,useCreateAdminMutation,useUpdateFacilityMutation ,useGetAllFacilityQuery,useDeleteFacilityMutation} = adminApi;

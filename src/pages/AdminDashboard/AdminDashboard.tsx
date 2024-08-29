@@ -68,6 +68,7 @@ const AdminDashboard = () => {
               <p className="text-xl font-serif text-center">All Bookings</p>
             </NavLink>
           </li>
+          <Divider variant="middle" component="li" />
           <li className="font-semibold text-lg text-center flex justify-center hover:text-[#fffff2] items-center hover:bg-[#414141]">
             <NavLink
               to="/admindashboard/createadmin"
@@ -77,6 +78,18 @@ const AdminDashboard = () => {
               <p className="text-xl font-serif text-center">Add Admin</p>
             </NavLink>
           </li>
+          <Divider variant="middle" component="li" />
+          <li className="font-semibold text-lg text-center flex justify-center hover:text-[#fffff2] items-center hover:bg-[#414141]">
+            <NavLink
+              to="/admindashboard/facilitymanage"
+
+              className={({ isActive }) => isActive ? "activelink hover:text-white flex items-center gap-3 p-2 rounded transition duration-200" : "flex items-center gap-3 p-2 rounded transition duration-200"}
+            >
+              <p className="text-xl font-serif text-center">Facility Management</p>
+            </NavLink>
+          </li>
+        
+
         </ul> 
       </div>
     </div>

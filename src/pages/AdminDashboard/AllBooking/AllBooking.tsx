@@ -9,7 +9,9 @@ import { useGetAllBookingsQuery } from '../../../redux/features/admin/admin.api'
 
 
 const AllBooking = () => {
-    const { data,isLoading } = useGetAllBookingsQuery(undefined);
+    const { data,isLoading } = useGetAllBookingsQuery(undefined, {
+        pollingInterval: 1000,
+      });
   
     if(isLoading || !data){
       return <div className="min-h-screen flex justify-center items-center">

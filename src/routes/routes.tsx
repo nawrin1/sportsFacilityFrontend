@@ -15,6 +15,7 @@ import AdminDashboard from '../pages/AdminDashboard/AdminDashboard';
 import MyAdminDashboard from '../pages/AdminDashboard/MyAdminDashboard/MyAdminDashboard';
 import AllBooking from '../pages/AdminDashboard/AllBooking/AllBooking';
 import CreateAdmin from '../pages/AdminDashboard/CreateAdmin/CreateAdmin';
+import FacilityManagement from '../pages/AdminDashboard/FacilityManagement/FacilityManagement';
 
 
 const router = createBrowserRouter([
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path:'createadmin',
         element:<CreateAdmin></CreateAdmin>
+      },
+      {
+        path:'facilitymanage',
+        element:<FacilityManagement></FacilityManagement>
       },
       // {
       //   path:`mybooking/:id`,

@@ -9,7 +9,9 @@ import { ThreeDots } from "react-loader-spinner";
 
 
 const MyBooking = () => {
-    const { data,isLoading } = useGetMyBookingQuery(undefined);
+    const { data,isLoading } = useGetMyBookingQuery(undefined, {
+      pollingInterval: 1000,
+    });
     const [deleteMyBooking]=useDeleteMyBookingMutation()
     if(isLoading || !data){
       return <div className="min-h-screen flex justify-center items-center">
