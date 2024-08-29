@@ -195,6 +195,8 @@ const Navbar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+    console.log(user)
+
     return (
         <div className="bg-black sticky top-0 h-auto pt-2  z-50 ">
             <div className="nav sticky flex justify-between rounded-full pt-2 px-2 pb-3 top-0 font-serif border-b-[1px] border-gray-500 font-bold w-full h-14 text-white mx-auto items-center max-w-[1200px]">
@@ -223,9 +225,12 @@ const Navbar = () => {
                             <NavLink to="/contactus" className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>Contact Us</li>
                             </NavLink>
-                            <NavLink to='/products' className={({ isActive }) => isActive ? "active" : ""}>
+                            {
+                                user?<NavLink to={`/${user?.role}dashboard/mydash`} className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>Dashboard</li>
-                            </NavLink>
+                            </NavLink>:""
+                            }
+
                         </ul>
                     </div>
                     {!isMenuOpen && <p className="menu-text text-2xl font-serif font-semibold text-center mr-20">MENU</p>}
@@ -270,9 +275,11 @@ const Navbar = () => {
                             <NavLink to="/contactus" className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>Contact Us</li>
                             </NavLink>
-                            <NavLink to='/products' className={({ isActive }) => isActive ? "active" : ""}>
+                            {
+                                user?<NavLink to={`/${user?.role}dashboard/mydash`} className={({ isActive }) => isActive ? "active" : ""}>
                                 <li className='a'>Dashboard</li>
-                            </NavLink>
+                            </NavLink>:""
+                            }
                 </ul>
             </div>
         </div>

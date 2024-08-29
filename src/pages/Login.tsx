@@ -3,7 +3,7 @@ import image1 from '../../src/assets/login (1).png';
 import image2 from '../../src/assets/password.gif';
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { Input } from '@mui/material';
-import { useAppDispatch, useAppSelector } from '../redux/hook';
+import { useAppDispatch } from '../redux/hook';
 import { toast } from 'sonner';
 import { useLoginMutation } from '../redux/features/auth/authApi';
 import { verifyToken } from '../utils/verifyToken';
@@ -30,6 +30,7 @@ const Login = () => {
 
             }
             const res = await login(userInfo).unwrap();
+            console.log(res)
             console.log(res.token)
 
             const user = verifyToken(res.token) as TUser;
@@ -42,7 +43,8 @@ const Login = () => {
               navigate(`/`)
 
         }catch(err){
-            toast.error("Something went wrong", { id: toastId, duration: 2000 });
+            // console.log(err.data.message)
+            toast.error(err.data.message, { id: toastId, duration: 2000 });
 
         }
     };

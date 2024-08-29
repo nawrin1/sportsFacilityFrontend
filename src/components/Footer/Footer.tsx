@@ -1,5 +1,5 @@
 import { BsGithub } from "react-icons/bs";
-import { FaLeaf, FaLinkedin } from "react-icons/fa";
+import {  FaLinkedin } from "react-icons/fa";
 import { MdOutlineSportsGymnastics } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 

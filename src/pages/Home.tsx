@@ -1,6 +1,6 @@
 import Banner from "../components/Banner/Banner";
 import Feature from "../components/Feature/Feature";
-import Footer from "../components/Footer/Footer";
+
 import Testimonial from "../components/Testimonial/Testimonial";
 import Timeline from "../components/Timeline/Timeline";
 import Video from "../components/Video/Video";
