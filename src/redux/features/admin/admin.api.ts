@@ -9,6 +9,15 @@ const adminApi = baseApi.injectEndpoints({
        
       }),
     }),
+    createAdmin: builder.mutation({
+      query: (data) => ({
+        url: '/auth/createadmin',
+        method: 'POST',
+        body:data
+
+       
+      }),
+    }),
     // getMyBooking: builder.query({
     //   query: () => ({
     //     url: 'bookings/user',
@@ -39,4 +48,4 @@ const adminApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {useGetAllBookingsQuery } = adminApi;
+export const {useGetAllBookingsQuery,useCreateAdminMutation } = adminApi;

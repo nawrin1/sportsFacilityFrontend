@@ -49,7 +49,7 @@ const AllBooking = () => {
               
             {data?.data
   .filter((each) => each.isBooked !== "canceled")
-  .map((each, idx) => (
+  .map((each, idx:number) => (
     <tr key={idx} className="border-b-1 border-[#565656] animate-fade-in transition-all duration-300 ease-in-out hover:scale-95 hover:bg-[#2d2d2d]  ">
       <td>
         <div className="font-bold">{each.user.name}</div>

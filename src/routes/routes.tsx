@@ -14,6 +14,7 @@ import MyBookingDetails from '../pages/UserDashboard/MyBookingDetails/MyBookingD
 import AdminDashboard from '../pages/AdminDashboard/AdminDashboard';
 import MyAdminDashboard from '../pages/AdminDashboard/MyAdminDashboard/MyAdminDashboard';
 import AllBooking from '../pages/AdminDashboard/AllBooking/AllBooking';
+import CreateAdmin from '../pages/AdminDashboard/CreateAdmin/CreateAdmin';
 
 
 const router = createBrowserRouter([
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path:'mydash',
         element:<MyAdminDashboard></MyAdminDashboard>
+      },
+      {
+        path:'createadmin',
+        element:<CreateAdmin></CreateAdmin>
       },
       // {
       //   path:`mybooking/:id`,

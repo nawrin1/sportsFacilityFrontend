@@ -1,15 +1,8 @@
-
-
-import './Register.css'
-import image1 from '../../src/assets/signup.png';
-import image2 from '../../src/assets/user-page.gif';
-import { useForm, Controller, SubmitHandler } from "react-hook-form";
-import { Input } from '@mui/material';
-
-import { toast } from 'sonner';
-import { useRegisterMutation } from '../redux/features/auth/authApi';
-
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Input } from "@mui/material";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
+import img1 from '../../../assets/circle-arrows.png'
+import { useCreateAdminMutation } from "../../../redux/features/admin/admin.api";
 
 interface IFormInput {
     name:string;
@@ -19,68 +12,57 @@ interface IFormInput {
     address:string;
 
 }
-
-const Register = () => {
-    
-    const [register] = useRegisterMutation();
+const CreateAdmin = () => {
     const { control, handleSubmit,formState: { errors }, } = useForm<IFormInput>();
-    const navigate=useNavigate()
+    const [createadmin] = useCreateAdminMutation();
     const onSubmit: SubmitHandler<IFormInput> = async(data) => {
         console.log(data);
-        const toastId = toast.loading('Creating Account');
+        const toastId = toast.loading('Creating admin');
         try{
-            const userInformation={
+            const adminInformation={
                 name:data.name,
                 email:data.email,
                 password:data.password,
                 phone:data.phone,
-                role:"user",
+                role:"admin",
                 address:data.phone,
 
 
             }
-            console.log(userInformation)
-            const res = await register(userInformation);
+            console.log(adminInformation)
+            const res = await createadmin(adminInformation);
             console.log(res)
-            if(res.data.success){
-                toast.success(res.data.message, { id: toastId, duration: 2000 });
+            
+       
+            // toast.success('Logged in', { id: toastId, duration: 2000 });
+            if(res.data?.success){
+               return toast.success(res.data.message, { id: toastId, duration: 2000 });
 
 
         
          
-                navigate(`/login`)
+                
 
             }
-            else if(res.error){
+            if(res.error){
                 toast.error(res.error.data.message, { id: toastId, duration: 2000 });
 
             }
-
+        
+         
+              
 
         }catch(err){
-            toast.error('Something went wrong', { id: toastId, duration: 2000 });
+            // console.log(err.data.message)
+            toast.error(err.data.message, { id: toastId, duration: 2000 });
 
         }
     };
 
     return (
-        <div className="bg-black w-full h-screen flex flex-col mx-auto items-center justify-center gap-6 p-2">
-            <div className='container z-50 lg:w-[50%] lg:h-[70%]  md:w-[50%] md:h-[75%] w-[75%] h-[85%]'>
-                <div className="login-cover z-30 p-7 flex items-center justify-between rounded-sm">
-                    <div className='flex justify-items-center justify-center h-[70%] w-full'>
-                        <img src={image1} alt="" />
-                    </div>
-                </div>
-                <div className="login-main z-0 rounded-sm flex">
-                   
-                    <div className='lg:h-full lg:w-full h-0 w-0 items-center justify-center flex  '>
-                            <img src={image2} className='lg:h-[70%] lg:w-[80%]  w-0 h-0 ' alt="" />
-                    </div>
-                  
-
-
-
-                    <div className='flex flex-col items-center justify-center  w-full'>
+        <div className="h-[100vh] flex lg:flex-row md:flex-row flex-col-reverse bg-[#fff4e4] shadow-inner shadow-gray-500 w-full ">
+            
+            <div className='flex flex-col items-center justify-center  w-full'>
                         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center gap-3 lg:gap-4 md:gap-4'>
                         <div className='flex flex-col'>
                                 <Controller
@@ -127,23 +109,32 @@ const Register = () => {
                                 />
                                  {errors.email && <span className='text-red-600 text-[14px]'>This field is required.</span>}
                             </div>
-                            <button type="submit" className='bg-black text-white px-3 py-1 lg:px-4 lg:py-2 md:px-3 md:py-1 rounded-md hover:bg-gray-500 font-semibold hover:text-black font-serif'>
-                                SIGN UP
+                            <button type="submit" className='bg-black text-white px-3 py-1 lg:px-4 lg:py-2 md:px-3 md:py-1 rounded-sm hover:bg-gray-500 font-semibold hover:text-black font-serif'>
+                                Create Admin
                             </button>
                         </form>
                     </div>
+
+
+           
+            <div className="  w-full flex flex-row-reverse lg:flex-col md:flex-col  ">
+                <div className="lg:h-[30%] md:h-[20%] h-full flex justify-end">
+                    <img src={img1} className="lg:h-full md:h-full h-[60%]"alt="" />
                 </div>
-            </div>
-            <div className=''>
-                <p className='font-serif text-[14px] font-semibold text-[#f2ede6]'>Already have an account? <NavLink to='/login'><span className='text-gray-500 font-semibold'>Login Now</span></NavLink></p>
+                <div className="flex items-center lg:justify-center md:justify-center justify-end pr-10 lg:pr-0 md:pr-0  w-full lg:h-[50%] md:h-[50%] 0 ">
+
+                <div className="">
+                <h2 className="lg:text-9xl md:text-8xl text-5xl">Create</h2>
+                <p className="text-right text-3xl">Admin</p>
+                </div>
+
+                </div>
 
             </div>
+            
+            
         </div>
     );
 };
 
-export default Register;
-
-
-
-
+export default CreateAdmin;
