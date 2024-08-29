@@ -9,8 +9,34 @@ const userApi = baseApi.injectEndpoints({
        
       }),
     }),
+    getMyBooking: builder.query({
+      query: () => ({
+        url: 'bookings/user',
+        method: 'GET',
+       
+      }),
+    }),
+    deleteMyBooking: builder.mutation({
+        
+      query: (id) => ({
+        url: `/bookings/${id}`,
+        method: 'DELETE',
+       
+       
+      }),
+    }),
+    singleMyBooking: builder.query({
+        
+      query: (id) => ({
+        url: `/bookings/${id}`,
+        method: 'GET',
+       
+       
+      }),
+    }),
+
 
   }),
 });
 
-export const {useGetUserQuery } = userApi;
+export const {useGetUserQuery ,useGetMyBookingQuery,useDeleteMyBookingMutation,useSingleMyBookingQuery} = userApi;

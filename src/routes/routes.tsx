@@ -9,6 +9,7 @@ import UserDashboard from '../pages/UserDashboard/UserDashboard';
 import ProtectedRoute from '../components/layout/ProtectedRoute';
 import MyBooking from '../pages/UserDashboard/MyBooking/MyBooking';
 import MyDashboard from '../pages/UserDashboard/MyDashboard/MyDashboard';
+import MyBookingDetails from '../pages/UserDashboard/MyBookingDetails/MyBookingDetails';
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path:'mydash',
         element:<MyDashboard></MyDashboard>
+      },
+      {
+        path:`mybooking/:id`,
+        element:<MyBookingDetails></MyBookingDetails>
       }
     ]
     
@@ -59,3 +64,9 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
+
+// resolvers
+// error data in login check res.err
+// 404 error page
+// provide tahs to avoid relod

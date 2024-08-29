@@ -1,0 +1,46 @@
+.singlebook-container {
+    position: relative;
+    width: 100%;
+    
+    overflow: hidden;
+}
+
+.singlebook-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.singlebookover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    background-image: linear-gradient(to top, rgb(63, 63, 63), #ffffff61,#747474  );
+    /* background-image: linear-gradient(to top, black, #054c7b91,#0b0f19  ); */
+    pointer-events: none; 
+   
+}
+
+
+.first-div {
+    background-image: linear-gradient(to right, gray, transparent);
+  }
+  
+
+  .second-div {
+    background-image: linear-gradient(to left, rgba(135, 135, 135, 0.765), transparent);
+  }
+  
+
+@media (max-width: 768px) {
+    
+    .singlebook-container {
+      height: 100vh;
+    }
+  
+    .singlebook-container img {
+      height: 100vh; 
+  }
+}
