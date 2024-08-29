@@ -54,6 +54,22 @@ const adminApi = baseApi.injectEndpoints({
           },
         invalidatesTags: ["facility"]
     }),
+    addFacility: builder.mutation({
+      
+        query: (facility) =>  {
+         
+          console.log(facility)
+  
+            return {
+              url: `/facility`,
+              method: "POST",
+              body:facility
+             
+              
+            };
+          },
+        invalidatesTags: ["facility"]
+    }),
     // singleMyBooking: builder.query({
         
     //   query: (id) => ({
@@ -68,4 +84,4 @@ const adminApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {useGetAllBookingsQuery,useCreateAdminMutation,useUpdateFacilityMutation ,useGetAllFacilityQuery,useDeleteFacilityMutation} = adminApi;
+export const {useGetAllBookingsQuery,useCreateAdminMutation,useUpdateFacilityMutation,useAddFacilityMutation ,useGetAllFacilityQuery,useDeleteFacilityMutation} = adminApi;

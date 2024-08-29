@@ -4,9 +4,9 @@ import { ThreeDots } from "react-loader-spinner";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { MdOutlineDriveFileRenameOutline } from "react-icons/md";
 import Swal from "sweetalert2";
-import {  Box, Fade, FormControl, Input,  Modal} from '@mui/material';
+import {  Box, Fade,  Input,  Modal} from '@mui/material';
 import { toast } from 'sonner';
-import { useDeleteFacilityMutation, useGetAllFacilityQuery, useUpdateFacilityMutation } from '../../../redux/features/admin/admin.api';
+import { useAddFacilityMutation, useDeleteFacilityMutation, useGetAllFacilityQuery, useUpdateFacilityMutation } from '../../../redux/features/admin/admin.api';
 
 // import { FaLeaf } from 'react-icons/fa';
 
@@ -17,7 +17,7 @@ interface Facility {
   pricePerHour: number;
   location: string;
   description: string;
-
+  isDeleted:boolean;
   image: string;
 }
 
@@ -61,8 +61,9 @@ const FacilityManagement = () => {
   });
   const [deleteFacility] = useDeleteFacilityMutation();
   const [updateFacility] = useUpdateFacilityMutation();
-//   const [addProduct] = useAddProductMutation();
-
+  const [addFacility] = useAddFacilityMutation();
+ 
+// console.log(data)
   const handleOpen = (facility:Facility) => {
     setSelectedFacility(facility);
     setOpen(true);
@@ -121,7 +122,7 @@ const FacilityManagement = () => {
     handleClose();
   };
 
-  const handleAddSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleAddSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget as FormElements;
 
@@ -133,15 +134,51 @@ const FacilityManagement = () => {
     image: (form.elements.namedItem("image") as HTMLInputElement)?.value,
   };
 
-    toast.success('Facility Added!', {
-        style: {
-          fontFamily: 'Cormorant Infant, sans-serif', 
-          color: 'black',
-          fontSize: '20px'
-        },
-      });
+
     console.log(newFacility)
-    // addProduct(newProduct);
+    try {
+        const res = await addFacility(newFacility);
+        if (res.success) {
+          toast.success('Facility Added!', {
+            style: {
+              fontFamily: 'Cormorant Infant, sans-serif',
+              color: 'black',
+              fontSize: '20px',
+            },
+          });
+        } else if (res.error) {
+            console.log(res.error)
+          toast.error(res.error.data.message, {
+            style: {
+              fontFamily: 'Cormorant Infant, sans-serif',
+              color: 'black',
+              fontSize: '20px',
+            },
+          });
+        }
+        else if (res?.status==400) {
+            console.log(res.error)
+          toast.error(res?.data?.message as string, {
+            style: {
+              fontFamily: 'Cormorant Infant, sans-serif',
+              color: 'black',
+              fontSize: '20px',
+            },
+          });
+        }
+      } catch (error) {
+        
+        toast.error('An unexpected error occurred.', {
+          style: {
+            fontFamily: 'Cormorant Infant, sans-serif',
+            color: 'black',
+            fontSize: '20px',
+          },
+        });
+        console.error('Error adding facility:', error);
+      }
+      
+    
     handleAddClose();
   };
 
@@ -212,7 +249,7 @@ const FacilityManagement = () => {
       <div className='flex flex-col lg:flex-row   lg:w-[80%] md:w-[80%] items-start justify-end pb-4 pt-4'>
         <button onClick={handleAddOpen} type="submit" className="relative shadow-sm shadow-slate-600 rounded-sm w-[150px] h-[35px] overflow-hidden border border-black group-hover:border-white text-black bg-white transition-all duration-500 ease-out group">
           <span className="absolute inset-0 w-full h-full bg-black transform translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0"></span>
-          <span className="relative z-10 flex items-center justify-center h-full text-black transition-colors duration-500 ease-out group-hover:text-white lg:text-xl text-[15px]">Add Product</span>
+          <span className="relative z-10 flex items-center justify-center h-full text-black transition-colors duration-500 ease-out group-hover:text-white lg:text-xl text-[15px]">Add Facility</span>
         </button>
       </div>
       <div className="overflow-x-auto lg:w-[80%] md:w-[80%] w-[95%]">
@@ -229,7 +266,7 @@ const FacilityManagement = () => {
           <tbody>
             
           {data?.data
-  .filter((each: Facility) => !each.isDeleted) // Filter out deleted items
+  .filter((each: Facility) => !each.isDeleted) 
   .map((each: Facility, idx: number) => (
     <tr key={idx} className="border-b-1 border-gray-600">
       <td>
