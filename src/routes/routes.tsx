@@ -16,6 +16,7 @@ import MyAdminDashboard from '../pages/AdminDashboard/MyAdminDashboard/MyAdminDa
 import AllBooking from '../pages/AdminDashboard/AllBooking/AllBooking';
 import CreateAdmin from '../pages/AdminDashboard/CreateAdmin/CreateAdmin';
 import FacilityManagement from '../pages/AdminDashboard/FacilityManagement/FacilityManagement';
+import AllFacility from '../pages/AllFacility/AllFacility';
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:"/contactus",
         element:<ContactUs></ContactUs>
+      },
+      {
+        path:'/allfacility',
+        element:<AllFacility></AllFacility>
       }
     ]
   },

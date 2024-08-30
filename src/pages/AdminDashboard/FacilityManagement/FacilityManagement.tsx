@@ -59,9 +59,27 @@ const FacilityManagement = () => {
   const { data, isLoading, isError } = useGetAllFacilityQuery({}, {
     pollingInterval: 1000,
   });
+
+
+
   const [deleteFacility] = useDeleteFacilityMutation();
   const [updateFacility] = useUpdateFacilityMutation();
   const [addFacility] = useAddFacilityMutation();
+
+  if(isLoading || !data){
+    return <div className="min-h-screen flex justify-center items-center">
+      <ThreeDots
+visible={true}
+height="80"
+width="80"
+color="#4fa94d"
+ariaLabel="three-dots-loading"
+wrapperStyle={{}}
+wrapperClass=""
+/>
+</div>
+  }
+
  
 // console.log(data)
   const handleOpen = (facility:Facility) => {
@@ -249,7 +267,7 @@ const FacilityManagement = () => {
       <div className='flex flex-col lg:flex-row   lg:w-[80%] md:w-[80%] items-start justify-end pb-4 pt-4'>
         <button onClick={handleAddOpen} type="submit" className="relative shadow-sm shadow-slate-600 rounded-sm w-[150px] h-[35px] overflow-hidden border border-black group-hover:border-white text-black bg-white transition-all duration-500 ease-out group">
           <span className="absolute inset-0 w-full h-full bg-black transform translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0"></span>
-          <span className="relative z-10 flex items-center justify-center h-full text-black transition-colors duration-500 ease-out group-hover:text-white lg:text-xl text-[15px]">Add Facility</span>
+          <span className="relative z-1 flex items-center justify-center h-full text-black transition-colors duration-500 ease-out group-hover:text-white lg:text-xl text-[15px]">Add Facility</span>
         </button>
       </div>
       <div className="overflow-x-auto lg:w-[80%] md:w-[80%] w-[95%]">
