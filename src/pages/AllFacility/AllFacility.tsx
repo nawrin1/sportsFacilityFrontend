@@ -1,6 +1,6 @@
 import { ThreeDots } from "react-loader-spinner";
 import { useGetAllFacilityQuery } from "../../redux/features/admin/admin.api";
-import { FaLeaf } from "react-icons/fa";
+
 import { Link } from "react-router-dom";
 import { IoFilter } from "react-icons/io5";
 import { PiEmptyBold } from "react-icons/pi";
@@ -86,7 +86,7 @@ const AllFacility = () => {
 
   return (
     <div className="pt-10 bg-[#04091e] px-2 min-h-screen">
-      <div className="flex justify-end mb-20">
+      <div className="flex justify-end mb-8">
         <Input
           sx={{
             '&:before': {
@@ -104,21 +104,12 @@ const AllFacility = () => {
           placeholder="Search by name / location"
         />
       </div>
-      <div className="flex justify-center">
-        <div className="category flex flex-col mx-auto justify-center">
-          <p className="text-white text-4xl text-center">All Facilities</p>
-          <p className="text-center text-white">
-            "Explore a diverse range of top-tier facilities designed to meet every need and preference."
-          </p>
-        </div>
-      </div>
-    
       <div className="flex justify-end w-full">
-        <div className="dropdown dropdown-left dropdown-end pt-4">
+        <div className="dropdown dropdown-bottom dropdown-end ">
           <div
             tabIndex={0}
             role="button"
-            className="bg-[#d4d4d4] hover:bg-black hover:text-white rounded-lg w-[100px] h-[35px] px-4 py-2 m-1 text-xl flex items-center"
+            className="bg-[#d4d4d4] hover:bg-[#878787] hover:text-black rounded-lg w-[100px] h-[35px] px-4 py-2 m-1 text-xl flex items-center"
           >
             <p>Filter</p>{" "}
             <div className="text-2xl pl-2">
@@ -143,6 +134,16 @@ const AllFacility = () => {
           </ul>
         </div>
       </div>
+      <div className="flex justify-center">
+        <div className="category flex flex-col mx-auto justify-center">
+          <p className="text-white text-4xl text-center font-serif font-semibold">Our Facilities</p>
+          <p className="text-center text-white font-serif mt-8 mb-8">
+            "Explore a diverse range of top-tier facilities designed to meet every need and preference."
+          </p>
+        </div>
+      </div>
+    
+ {/* filter */}
 
       <div className="flex justify-center items-center">
         {filteredFacilities.length > 0 ? (

@@ -6,6 +6,7 @@ import { RootState } from '../store';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: 'https://sportbackend-ten.vercel.app/api',
+  // baseUrl: 'http://localhost:4000/api',
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;

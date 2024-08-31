@@ -15,6 +15,8 @@
     "@mui/lab": "^6.0.0-beta.8",
     "@mui/material": "^6.0.0",
     "@reduxjs/toolkit": "^2.2.7",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^4.4.0",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "framer-motion": "^11.3.30",
@@ -22,6 +24,7 @@
     "react": "^18.3.1",
     "react-animate-on-scroll": "^2.1.9",
     "react-chrono": "^2.6.1",
+    "react-datepicker": "^7.3.0",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
     "react-icons": "^5.3.0",
@@ -36,6 +39,8 @@
     "swiper": "^11.1.10"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/node": "^22.5.1",
     "@types/react": "^18.3.3",
     "@types/react-animate-on-scroll": "^2.1.8",
     "@types/react-dom": "^18.3.0",

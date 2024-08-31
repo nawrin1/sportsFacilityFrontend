@@ -1,0 +1,40 @@
+/* .facility {
+  background: linear-gradient(rgba(33, 33, 33, 0.463), rgba(63, 63, 63, 0.6)),
+    url("../../assets/details.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(5px);
+} */
+
+
+
+.facility {
+  position: relative;
+  overflow: hidden; 
+  height: 100vh;
+  width: 100%;
+}
+
+.facility::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(33, 33, 33, 0.463), rgba(63, 63, 63, 0.733)),
+    url("../../assets/abigail-keenan-8-s5QuUBtyM-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(2px); 
+  z-index:0;
+  
+}
+
+
+
+

@@ -70,18 +70,19 @@ const adminApi = baseApi.injectEndpoints({
           },
         invalidatesTags: ["facility"]
     }),
-    // singleMyBooking: builder.query({
+    getSingleFacility: builder.query({
         
-    //   query: (id) => ({
-    //     url: `/bookings/${id}`,
-    //     method: 'GET',
+      query: (name) => ({
+        url: `/facility/${name}`,
+        method: 'GET',
        
        
-    //   }),
-    // }),
+      }),
+    }),
+
 
 
   }),
 });
 
-export const {useGetAllBookingsQuery,useCreateAdminMutation,useUpdateFacilityMutation,useAddFacilityMutation ,useGetAllFacilityQuery,useDeleteFacilityMutation} = adminApi;
+export const {useGetAllBookingsQuery,useCreateAdminMutation,useGetSingleFacilityQuery,useUpdateFacilityMutation,useAddFacilityMutation ,useGetAllFacilityQuery,useDeleteFacilityMutation} = adminApi;

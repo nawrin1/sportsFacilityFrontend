@@ -27,11 +27,11 @@ const AboutUs = () => {
             variant="h3"
             sx={{ fontWeight: 'bold' }}
             gutterBottom
-            className="text-yellow-500"
+            className="text-[#f2ede6]"
           >
             Our Mission
           </Typography>
-          <Typography variant="body1" className="text-gray-300 leading-relaxed">
+          <Typography variant="body1" className="text-gray-300 leading-relaxed pt-4">
             Our mission is to offer world-class sports facilities that cater to athletes of all
             levels. We strive to create a vibrant community where dedication and passion drive
             performance, empowering every individual to achieve their best.
@@ -39,9 +39,10 @@ const AboutUs = () => {
         </div>
 
        
-        <Timeline position="alternate" sx={{ marginBottom: '50px' }}>
+        <Timeline position="alternate" sx={{ marginBottom: '50px' ,paddingTop:"30px"}}>
          
-          <TimelineItem>
+         
+          <TimelineItem >
             <TimelineOppositeContent
               sx={{ m: 'auto 0' }}
               align="right"
@@ -66,6 +67,7 @@ const AboutUs = () => {
               </Typography>
             </TimelineContent>
           </TimelineItem>
+          
 
       
           <TimelineItem>
@@ -175,8 +177,8 @@ const AboutUs = () => {
 
 </div> */}
 
-<div className="about-container relative lg:h-[100vh] md:h-[50vh] ">
-  <div className="aboutover h-[100%] lg:h-[100%]"></div>
+<div className="about-container relative lg:h-[100vh] md:h-[50vh] mt-10 ">
+  <div className="aboutover h-[100%] lg:h-[100%] "></div>
   <div>
     <img src={img1} alt="" />
   </div>
@@ -221,8 +223,8 @@ const AboutUs = () => {
       </div>
 
    
-      <div style={{ marginTop: '40px', maxWidth: '6xl' }} className=" max-w-6xl  px-4 mx-auto ">
-        <Typography variant="h5" gutterBottom className="text-yellow-500">
+      <div style={{ marginTop: '70px', maxWidth: '6xl' }} className=" max-w-6xl  px-4 mx-auto ">
+        <Typography variant="h5" gutterBottom className="text-yellow-100">
           Contact Us
         </Typography>
         <Typography variant="body1" className="text-gray-300">

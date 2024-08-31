@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import { BsEmojiSmile } from 'react-icons/bs';
 
 import { FaGenderless } from 'react-icons/fa';
@@ -10,7 +11,17 @@ import { RxDashboard } from 'react-icons/rx';
 import { TbBrandBooking } from 'react-icons/tb';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 const Timeline = () => {
+  useEffect(() => {
+    Aos.init({
+        duration:1500
+    });
+    Aos.refresh();
+  }, []);
+
+  
     return (
       // -z-30 chilo
         <div className='relative z-0 bg-black  pt-20'>

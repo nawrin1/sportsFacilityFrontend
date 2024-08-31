@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
-import Home from '../pages/Home';
+
 import AboutUs from '../pages/AboutUs/AboutUs';
 import ContactUs from '../pages/ContactUs/ContactUs';
 import UserDashboard from '../pages/UserDashboard/UserDashboard';
@@ -17,12 +17,18 @@ import AllBooking from '../pages/AdminDashboard/AllBooking/AllBooking';
 import CreateAdmin from '../pages/AdminDashboard/CreateAdmin/CreateAdmin';
 import FacilityManagement from '../pages/AdminDashboard/FacilityManagement/FacilityManagement';
 import AllFacility from '../pages/AllFacility/AllFacility';
+import FacilityDetails from '../pages/FacilityDetails/FacilityDetails';
+import Booking from '../pages/Booking/Booking';
+import Payment from '../pages/Payment/Payment';
+import Error from '../pages/Error/Error';
+import Home from '../pages/Home';
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement:<Error></Error>,
     children:[
       {
         path:'/',
@@ -40,7 +46,20 @@ const router = createBrowserRouter([
       {
         path:'/allfacility',
         element:<AllFacility></AllFacility>
+      },
+      {
+        path:`/allfacility/:name`,
+        element:<FacilityDetails></FacilityDetails>
+      },
+      {
+        path:`/bookingfacility/:facility`,
+        element:<Booking></Booking>
+      },
+      {
+        path:`/payment`,
+        element:<Payment></Payment>
       }
+
     ]
   },
 
