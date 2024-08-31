@@ -53,11 +53,11 @@ const router = createBrowserRouter([
       },
       {
         path:`/bookingfacility/:facility`,
-        element:<Booking></Booking>
+        element:<ProtectedRoute role="user"><Booking></Booking></ProtectedRoute>,
       },
       {
         path:`/payment`,
-        element:<Payment></Payment>
+        element:<ProtectedRoute role="user"><Payment></Payment></ProtectedRoute>,
       }
 
     ]
@@ -125,5 +125,5 @@ export default router;
 
 // resolvers
 // error data in login check res.err
-// 404 error page
-// provide tahs to avoid relod
+
+//login kore jekhane teke ashchi shekhanw back korbo

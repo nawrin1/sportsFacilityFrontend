@@ -10,7 +10,7 @@ import img1 from '../../../assets/profile (1).png'
 import { useGetUserQuery } from "../../../redux/features/user/user.api";
 import { ThreeDots } from "react-loader-spinner";
 const MyDashboard = () => {
-    const { data,isLoading } = useGetUserQuery(undefined);
+    const { data,isLoading } = useGetUserQuery(undefined,{pollingInterval:1000});
     if(isLoading || !data){
       return <div className="min-h-screen flex justify-center items-center">
         <ThreeDots

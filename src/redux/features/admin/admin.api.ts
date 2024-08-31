@@ -8,7 +8,7 @@ const adminApi = baseApi.injectEndpoints({
         method: 'GET',
        
       }),
-      providesTags: ["facility"]
+      providesTags: ["booking"]
     }),
     createAdmin: builder.mutation({
       query: (data) => ({
@@ -18,6 +18,7 @@ const adminApi = baseApi.injectEndpoints({
 
        
       }),
+      invalidatesTags:['user']
     }),
     getAllFacility: builder.query({
       query: () => ({
@@ -78,6 +79,7 @@ const adminApi = baseApi.injectEndpoints({
        
        
       }),
+      providesTags: ["facility"]
     }),
 
 

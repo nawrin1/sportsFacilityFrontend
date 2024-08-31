@@ -11,6 +11,7 @@ const userApi = baseApi.injectEndpoints({
         method: 'GET',
        
       }),
+      providesTags:['user']
     }),
     getMyBooking: builder.query({
       query: () => ({
@@ -18,6 +19,7 @@ const userApi = baseApi.injectEndpoints({
         method: 'GET',
        
       }),
+      providesTags:['booking']
     }),
     deleteMyBooking: builder.mutation({
         
@@ -27,6 +29,7 @@ const userApi = baseApi.injectEndpoints({
        
        
       }),
+      invalidatesTags:['booking']
     }),
     singleMyBooking: builder.query({
         
@@ -36,6 +39,7 @@ const userApi = baseApi.injectEndpoints({
        
        
       }),
+      providesTags:['booking']
     }),
     userBooking: builder.mutation({
         
@@ -46,6 +50,7 @@ const userApi = baseApi.injectEndpoints({
        
        
       }),
+      invalidatesTags:['booking']
     }),
     createPayment: builder.mutation({
       

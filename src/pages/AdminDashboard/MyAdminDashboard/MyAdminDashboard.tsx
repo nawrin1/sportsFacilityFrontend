@@ -12,7 +12,7 @@ import './MyAdminDashboard.css'
 import { ThreeDots } from "react-loader-spinner";
 
 const MyAdminDashboard = () => {
-    const { data,isLoading } = useGetUserQuery(undefined);
+    const { data,isLoading } = useGetUserQuery(undefined,{pollingInterval:1000});
     if(isLoading || !data){
       return <div className="min-h-screen flex justify-center items-center">
         <ThreeDots

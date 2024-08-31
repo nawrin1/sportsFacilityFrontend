@@ -1,8 +1,11 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import { useCreatePaymentMutation } from "../../redux/features/user/user.api";
+import { useCreatePaymentMutation, useUserBookingMutation } from "../../redux/features/user/user.api";
 import { useAppSelector } from "../../redux/hook";
 import { selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { useBookingInfo } from "../../redux/features/booking/bookingSlice";
+import { toast } from "sonner";
+import Swal from "sweetalert2";
 
 
 const CheckoutForm = () => {
@@ -12,10 +15,23 @@ const CheckoutForm = () => {
     const [createPayment]=useCreatePaymentMutation(undefined)
     const [transactionId,setTransactionId] =useState("")
     const [clientSecret, setClientSecret] = useState('')
-    const price={price:100}
+    
     const user=useAppSelector(selectCurrentUser)
-    console.log(user,"user")
+    const bookingInfo=useAppSelector(useBookingInfo)
+    const [userBooking] = useUserBookingMutation();
+    const price={price:bookingInfo.price}
 
+
+    // console.log(bookingInfo,"user")
+ 
+    const bookingDbInfo={
+        facility:bookingInfo.facilityId,
+        date:bookingInfo.date,
+        startTime:bookingInfo.startTime,
+        endTime:bookingInfo.endTime
+    }
+
+    console.log(bookingDbInfo)
     useEffect(() => {
         const fetchPayment = async () => {
           try {
@@ -37,6 +53,8 @@ const CheckoutForm = () => {
 
     const handleSubmit=async(event)=>{
       event.preventDefault()
+      const toastId = toast.loading("Booking creating..");
+
 
       
       if (!stripe || !elements) {
@@ -81,13 +99,33 @@ const CheckoutForm = () => {
         if (paymentIntent.status === 'succeeded') {
             console.log('transaction id', paymentIntent.id);
             setTransactionId(paymentIntent.id);
+                const res = await userBooking(bookingDbInfo);
+                console.log(res);
+                if (res.error) {
+                toast.error(`${res.error.data.errorMessages[0]?.path} ${res.error.data.errorMessages[0]?.message}`, {
+                    id: toastId,
+                    duration: 2000,
+                });
+                }
+                if (res.data.success) {
+                toast.success("Booking Created", { id: toastId, duration: 2000 });
+                Swal.fire({
+                    title: `Dear ${bookingInfo.UserName}`,
+                   
+                    html: `Your booking for  <strong>${bookingInfo.facilityName} </strong> has been confirme and your payment has been done. Your total payable amount is <strong>${price.price}$</strong>. Thank you so much for your booking. Have a nice day!.
+                      
+                    `,
+                    showCloseButton: true,
+                    
+                    
+                    
+                  });
+
+
+                }
     
     
     }}
-
-
-
-
 
     }
     return (
@@ -97,9 +135,9 @@ const CheckoutForm = () => {
                 style: {
                     base: {
                         fontSize: '16px',
-                        color: '#424770',
+                        color: 'black',
                         '::placeholder': {
-                            color: '#aab7c4',
+                            color: 'black',
                         },
                     },
                     invalid: {
@@ -108,8 +146,8 @@ const CheckoutForm = () => {
                 },
             }}
         />
-        <button className="btn btn-sm btn-primary my-4" type="submit"  disabled={!stripe || !clientSecret}  >
-            Pay
+        <button className="btn btn-outline  mt-10 w-full text-xl" type="submit"  disabled={!stripe || !clientSecret}  >
+            Confirm Payment
         </button>
         <p className="text-red-600">{error}</p>
         {transactionId && <p className="text-green-600"> Your transaction id: {transactionId}</p>}
