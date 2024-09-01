@@ -1,6 +1,5 @@
 import { ThreeDots } from "react-loader-spinner";
 import { useGetAllFacilityQuery } from "../../redux/features/admin/admin.api";
-
 import { Link } from "react-router-dom";
 import { IoFilter } from "react-icons/io5";
 import { PiEmptyBold } from "react-icons/pi";
@@ -22,10 +21,13 @@ const AllFacility = () => {
   const [max, setMax] = useState<number>(1000);
   const [min, setMin] = useState<number>(0);
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const { data, isLoading, isError } = useGetAllFacilityQuery(undefined, {
+  const [currentPage, setCurrentPage] = useState<number>(0); // Use number type for pagination
+
+  const pagination = { page: '0', size: '1000' }; // Load more data for filtering on the client
+  const { data, isLoading, isError } = useGetAllFacilityQuery(pagination, {
     pollingInterval: 1000,
   });
-  
+
   if (isLoading || !data) {
     return (
       <div className="min-h-screen flex justify-center items-center">
@@ -60,32 +62,29 @@ const AllFacility = () => {
     );
   }
 
- 
-
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
- 
   const validMin = isNaN(min) ? 0 : min;
   const validMax = isNaN(max) ? 1000 : max;
-
- 
   const searchRegex = new RegExp(searchTerm, 'i');
 
-//   console.log("Search Term:", searchTerm);
-//   console.log("Min Price:", validMin);
-//   console.log("Max Price:", validMax);
-
-  
   const filteredFacilities = data.data?.filter((facility: Facility) => {
     const facilityPrice = facility.pricePerHour;
     const matchesSearch = searchRegex.test(facility.name) || searchRegex.test(facility.location);
     const matchesPrice = facilityPrice >= validMin && facilityPrice <= validMax;
-    console.log(`Facility: ${facility.name}, Price: ${facilityPrice}, Matches Search: ${matchesSearch}, Matches Price: ${matchesPrice}`);
     return matchesPrice && matchesSearch && !facility.isDeleted;
   }) || [];
-  console.log(filteredFacilities.length)
+
+  // Pagination for filtered results
+  const itemsPerPage = 6;
+  const totalPage = Math.ceil(filteredFacilities.length / itemsPerPage);
+  const buttons = [...Array(totalPage).keys()];
+
+  // Calculate paginated facilities for current page
+  const paginatedFacilities = filteredFacilities.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+
   return (
     <div className="pt-10 bg-[#04091e] px-2 min-h-screen">
       <div className="flex justify-end mb-8">
@@ -144,13 +143,11 @@ const AllFacility = () => {
           </p>
         </div>
       </div>
-    
- {/* filter */}
 
       <div className="flex justify-center items-center">
-        {filteredFacilities.length > 0 ? (
+        {paginatedFacilities.length > 0 ? (
           <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4 justify-center items-center mx-auto place-items-center mb-20">
-            {filteredFacilities.map((facility: Facility, idx: number) => (
+            {paginatedFacilities.map((facility: Facility, idx: number) => (
               <Link to={`/allfacility/${facility.name}`} key={idx}>
                 <div className="card bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-xl">
                   <div className="relative group">
@@ -184,6 +181,20 @@ const AllFacility = () => {
             </div>
           </div>
         )}
+      </div>
+
+      <div className="flex items-center justify-center gap-6 pb-10">
+        {buttons.map(page => (
+          <div
+            onClick={() => setCurrentPage(page)}
+            key={page}
+            className={`text-white h-[40px] w-[40px] rounded-full border-2 text-center flex items-center justify-center cursor-pointer ${
+              currentPage === page ? 'bg-gray-600 text-white' : 'hover:bg-white hover:text-black'
+            }`}
+          >
+            {page + 1}
+          </div>
+        ))}
       </div>
     </div>
   );

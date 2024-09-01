@@ -21,9 +21,10 @@ const adminApi = baseApi.injectEndpoints({
       invalidatesTags:['user']
     }),
     getAllFacility: builder.query({
-      query: () => ({
+      query: (pagination) => ({
         url: '/facility',
         method: 'GET',
+        params:pagination
        
       }),
       providesTags: ["facility"]
