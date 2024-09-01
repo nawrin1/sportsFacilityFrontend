@@ -4,11 +4,13 @@ import img1 from '../../assets/SPORTS EASE (2).png';
 import { useEffect } from 'react';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 
 const Banner = () => {
+  const navigate=useNavigate()
   useEffect(() => {
     Aos.init({
         duration:1500
@@ -34,10 +36,12 @@ const Banner = () => {
 
 
     <div className='absolute lg:top-[40%] top-[30%] md:top-[30%]   w-full h-[20%] text-center  flex justify-center items-center '>
-      <div className='book cursor-pointer w-[18%] h-[20%] lg:ml-[37px] md:mr-5 mr-3 border-2 border-white 0 text-white lg:pt-1 md:text-[14px] text-[8px] lg:left-[43%] lg:top-[45%] md:left-[38%] md:top-[35%] left-[40%] top-[30%]'>
+      
+      <div onClick={()=>navigate("/allfacility")} className='book cursor-pointer w-[18%] h-[20%] lg:ml-[37px] md:mr-5 mr-3 border-2 border-white 0 text-white lg:pt-1 md:text-[14px] text-[8px] lg:left-[43%] lg:top-[45%] md:left-[38%] md:top-[35%] left-[40%] top-[30%]'>
         BOOK NOW
 
       </div>
+      
       
     </div>
 

@@ -156,7 +156,8 @@ wrapperClass=""
     console.log(newFacility)
     try {
         const res = await addFacility(newFacility);
-        if (res.success) {
+        console.log(res)
+        if (res.data.success) {
           toast.success('Facility Added!', {
             style: {
               fontFamily: 'Cormorant Infant, sans-serif',

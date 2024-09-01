@@ -123,7 +123,4 @@ const router = createBrowserRouter([
 export default router;
 
 
-// resolvers
-// error data in login check res.err
 
-//login kore jekhane teke ashchi shekhanw back korbo

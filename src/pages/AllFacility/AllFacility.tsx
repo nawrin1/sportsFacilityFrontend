@@ -25,7 +25,7 @@ const AllFacility = () => {
   const { data, isLoading, isError } = useGetAllFacilityQuery(undefined, {
     pollingInterval: 1000,
   });
-
+  
   if (isLoading || !data) {
     return (
       <div className="min-h-screen flex justify-center items-center">
@@ -60,6 +60,8 @@ const AllFacility = () => {
     );
   }
 
+ 
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
@@ -83,7 +85,7 @@ const AllFacility = () => {
     console.log(`Facility: ${facility.name}, Price: ${facilityPrice}, Matches Search: ${matchesSearch}, Matches Price: ${matchesPrice}`);
     return matchesPrice && matchesSearch && !facility.isDeleted;
   }) || [];
-
+  console.log(filteredFacilities.length)
   return (
     <div className="pt-10 bg-[#04091e] px-2 min-h-screen">
       <div className="flex justify-end mb-8">
@@ -158,7 +160,7 @@ const AllFacility = () => {
                       alt={facility.name}
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <h1 className="text-[22px] font-semibold">
+                      <h1 className="text-[22px] font-semibold text-center">
                         {facility.name}
                       </h1>
                       <div className="flex items-center space-x-1">

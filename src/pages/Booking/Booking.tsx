@@ -126,7 +126,7 @@ const Booking = () => {
 
     
     if (start >= end) {
-      toast.error("Please enter time in HH:mm format.");
+      toast.error("Start time should be smaller than end time");
         return; 
     }
 

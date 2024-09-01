@@ -3,6 +3,7 @@ import { logout, useCurrentUserToken } from "../../redux/features/auth/authSlice
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { verifyToken } from "../../utils/verifyToken";
 import { ReactNode } from "react";
+import { toast } from "sonner";
 
 type TProtectedRoute = {
   children: ReactNode;
@@ -24,6 +25,8 @@ const ProtectedRoute = ({ children,role }: TProtectedRoute) => {
   const dispatch = useAppDispatch();
 
   if (role !== undefined && role !== user?.role) {
+    toast.success('You are unauthorized');
+
     dispatch(logout());
     return <Navigate to="/login" replace={true} />;
   }

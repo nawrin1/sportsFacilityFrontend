@@ -51,14 +51,18 @@ const Register = () => {
                 navigate(`/login`)
 
             }
-            else if(res.error){
-                toast.error(res.error.data.message, { id: toastId, duration: 2000 });
+            else{
+                console.log("entered",res?.error?.data?.message)
+                toast.error(res?.error?.data?.message , { id: toastId, duration: 2000 });
 
             }
+           
 
 
         }catch(err){
-            toast.error('Something went wrong', { id: toastId, duration: 2000 });
+            
+           
+            toast.error("something went wrong", { id: toastId, duration: 2000 });
 
         }
     };
