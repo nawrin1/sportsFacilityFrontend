@@ -5,8 +5,8 @@ import { RootState } from '../store';
 
 
 const baseQuery = fetchBaseQuery({
-  // baseUrl: 'https://sportbackend-ten.vercel.app/api',
-  baseUrl: 'http://localhost:4000/api',
+  baseUrl: 'https://sportbackend-ten.vercel.app/api',
+  // baseUrl: 'http://localhost:4000/api',
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
@@ -26,7 +26,7 @@ const baseQuery = fetchBaseQuery({
 export const baseApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: baseQuery,
-  tagTypes:["facility","user",'booking'],
+  tagTypes:["facility","user",'booking','available'],
 
   endpoints: () => ({}),
 });

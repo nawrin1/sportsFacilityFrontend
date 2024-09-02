@@ -6,6 +6,29 @@ import { TbListDetails } from "react-icons/tb";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
+export interface Root {
+  date: string
+  endTime: string
+  facility: Facility
+  isBooked: string
+  payableAmount: number
+  startTime: string
+  user: string
+  _id: string
+}
+
+export interface Facility {
+  _id: string
+  name: string
+  description: string
+  pricePerHour: number
+  location: string
+  isDeleted: boolean
+  createdAt: string
+  updatedAt: string
+  __v: number
+  image: string
+}
 
 
 const MyBooking = () => {
@@ -77,8 +100,8 @@ const MyBooking = () => {
             <tbody className="text-white">
               
             {data?.data
-  .filter((each) => each.isBooked !== "canceled") 
-  .map((each, idx:number) => (
+  .filter((each:Root) => each.isBooked !== "canceled") 
+  .map((each:Root, idx:number) => (
     <tr key={idx} className="border-b-1 border-[#565656]">
       <td>
         <div className="font-bold">{each.facility.name}</div>

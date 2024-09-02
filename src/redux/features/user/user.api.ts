@@ -71,22 +71,7 @@ const userApi = baseApi.injectEndpoints({
       query: (args) => {
         console.log("Args received:", args);
         
-        // Initialize a new object correctly
-        // const newObj = {};
-    
-        // // Correctly iterate over args (assuming it's an array of objects)
-        // if (args) {
-        //   for (const item of args) {
-        //     // Assuming each item is an object like { date: '2024-08-15' } or { facility: '666d96f0f9745d5946212f3e' }
-        //     for (const key in item) {
-        //       if (item.hasOwnProperty(key)) {
-        //         newObj[key] = item[key];
-        //       }
-        //     }
-        //   }
-        // }
-        
-        // console.log("Formatted new object:", newObj);
+       
     
         return {
           url: '/check-availability',
@@ -94,6 +79,7 @@ const userApi = baseApi.injectEndpoints({
           params: args, 
         };
       },
+      providesTags:['available']
     }),
     
 

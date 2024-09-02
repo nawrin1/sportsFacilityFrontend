@@ -8,14 +8,14 @@ import {
  
   useCheckSlotsQuery,
   
-  useUserBookingMutation,
+  
 } from "../../redux/features/user/user.api";
 import {  Input } from "@mui/material";
 import { toast } from "sonner";
 import { useAppDispatch } from "../../redux/hook";
 import { setBooking } from "../../redux/features/booking/bookingSlice";
 type TParam = { date: string; facility: string };
-type Tslots = { startTime: string; endTime: string };
+type TSlots = { startTime: string; endTime: string };
 
 const Booking = () => {
   const dispatch=useAppDispatch()
@@ -41,8 +41,9 @@ const Booking = () => {
     refetch,
   } = useCheckSlotsQuery(params, {
     skip: !params,
+    pollingInterval:1000
   });
-  const [userBooking] = useUserBookingMutation();
+  // const [userBooking] = useUserBookingMutation();
 
   //   const { data:user } = useGetUserQuery(undefined);
 
@@ -109,7 +110,7 @@ const Booking = () => {
     
 
   // };
-  const handleBooking = async (event) => {
+  const handleBooking = async (event:  React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
  
@@ -150,7 +151,8 @@ const Booking = () => {
     navigate("/payment");
 };
 
-  const formatDate = (date) => {
+  const formatDate = (date:any) => {
+    console.log(date)
     if (date) {
       const year = date.getFullYear();
       const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -172,13 +174,13 @@ const Booking = () => {
   };
 
   //    console.log(params)
-  //    console.log(slots)
-  // console.log(user)
+     console.log(slots)
+  console.log(availableSlots)
   return (
     <div className="min-h-screen bg-black p-4 flex flex-col items-center pb-10">
       {/* Facility Overview */}
-      <div className="text-white shadow-md rounded-md p-6 mb-8 w-full max-w-4xl">
-        <h2 className="text-2xl font-bold mb-4">{data?.data[0].name}</h2>
+      <div className="text-white shadow-md rounded-md p-10 mb-8 w-full max-w-5xl">
+        <h2 className="lg:text-4xl text-2xl font-bold mb-4">{data?.data[0].name}</h2>
         <p className="text-gray-300 ">{data?.data[0].description}</p>
         <p className="text-gray-300 ">
           Price Per Hour: {data?.data[0].pricePerHour}$
@@ -220,7 +222,7 @@ const Booking = () => {
             </li>
           ))} */}
           <ul className="list-none p-0 m-0">
-  {slots?.data?.map((slot, index:number) => (
+  {slots?.data?.map((slot:TSlots, index:number) => (
     <li
       key={index}
       className="text-gray-300 border-b border-gray-600 py-2 text-center hover:bg-gray-200 hover:text-black"

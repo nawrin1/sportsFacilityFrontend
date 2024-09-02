@@ -1,30 +1,66 @@
-# React + TypeScript + Vite
+# Sports Facility Booking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Introduction
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a sports facility booking platform designed to provide users with an intuitive interface for booking various sports facilities. The platform offers both user and admin dashboards, enabling users to manage bookings and administrators to manage facilities, bookings, and users.
 
-## Expanding the ESLint configuration
+## Project Description
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The Sports Facility Booking Platform integrates frontend and backend systems to deliver a fully functional interface for booking sports facilities. The platform aims to simplify the booking process, enhance user experience, and provide comprehensive management tools for administrators.
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Landing Page:** Overview of the platform with a hero section, featured facilities, a "How It Works" guide, customer testimonials, and a video component.
+- **User Dashboard:** Manage bookings, view details, and cancel bookings.
+- **Admin Dashboard:** Manage facilities, bookings, and users with CRUD operations.
+- **Login/Registration:** Access control with error handling.
+- **About Us Page:** Mission statement, team bios, and contact information are provided.
+- **Contact Us Page:** Contact form and map integration is done.
+- **Facility Listing Page:** Search, filters facility through name or location, and displaying facility cards.
+- **Facility Details Page:** Detailed view of a specific facility.
+- **Booking Page:** Availability checker, booking form, and payment integration.
+- **Error Pages:** Custom error pages with navigation options.
+- **Responsive Design:** Fully responsive for mobile, tablet, and desktop devices.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Technology Stack
+
+- **Frontend:** React, Tailwind CSS, Framer Motion, Typescript
+- **Backend:** Node.js, Express.js, MongoDB, Mongoose, Typescript
+- **Other Tools:** Redux, stripe for payment integration
+
+## Installation Guideline
+
+### Prerequisites
+
+- Node.js
+- npm or yarn
+- MongoDB
+
+### Installation Steps
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/yourusername/sports-facility-booking.git
+   cd sports-facility-booking
+
+   ```
+2. Install Dependencies: 
+
+   ```
+   npm install
+   ```
+### Configuration
+
+   
+  1. Set up environment. Your .env file should look like this
+   ```
+   VITE_stripe: your_key
+   ```
+### Usage
+   1. Run the project:
+   ```
+   npm run dev
+   ```
+

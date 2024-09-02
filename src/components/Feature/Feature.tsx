@@ -1,13 +1,66 @@
 import { Parallax } from "react-scroll-parallax";
 import img1 from '../../assets/p1.jpg';
-import img2 from '../../assets/p2.jpg';
-import img3 from '../../assets/p3.jpg';
-import img4 from '../../assets/p4.jpg';
+// import img2 from '../../assets/p2.jpg';
+// import img3 from '../../assets/p3.jpg';
+// import img4 from '../../assets/p4.jpg';
 
 import './Feature.css'
 import { Divider } from "@mui/material";
+import { useGetAllFacilityQuery } from "../../redux/features/admin/admin.api";
+import { ThreeDots } from "react-loader-spinner";
+
+export interface Item {
+  _id: string
+  name: string
+  description: string
+  pricePerHour: number
+  location: string
+  isDeleted: boolean
+  image: string
+}
 
 const Feature = () => {
+  const pagination = { page: '0', size: '1000' }; // Load more data for filtering on the client
+  const { data, isLoading, isError } = useGetAllFacilityQuery(pagination, {
+    pollingInterval: 1000,
+  });
+
+  if (isLoading || !data) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <ThreeDots
+          visible={true}
+          height="80"
+          width="80"
+          color="#4fa94d"
+          radius="9"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <ThreeDots
+          visible={true}
+          height="80"
+          width="80"
+          color="#4fa94d"
+          radius="9"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div>
+    );
+  }
+
+  const filteredData = data.data.filter((item:Item) => !item.isDeleted).slice(0, 3);
+  console.log(filteredData)
     return (
       // -z-30 chilo
         <div className="bg-black lg:h-[900px] md:h-[600px] h-[300px] relative z-0 pb-40">
@@ -33,7 +86,7 @@ const Feature = () => {
 
               
               <div className='w-1/2 lg:h-[900px] md:h-[600px] h-[300px]  text-white'>
-                <div className='h-full flex flex-col '>
+                {/* <div className='h-full flex flex-col '>
                 <Parallax speed={5}>
                 <div className="w-full lg:h-[300px] md:h-[200px] h-[100px] flex">
   <div className="flex-1 flex flex-col justify-center items-end p-2">
@@ -114,7 +167,47 @@ const Feature = () => {
                   </Parallax>
                   
 
-                </div>
+                </div> */}
+                <div className='h-full flex flex-col'>
+    {filteredData.map((item:Item, index:number) => (
+      <Parallax key={item._id} speed={5 * (index + 1)}>
+        <div className="w-full lg:h-[300px] md:h-[200px] h-[100px] flex">
+          <div className="flex-1 flex flex-col justify-center items-end p-2">
+            <h1 className="lg:text-2xl font-semibold md:text-[16px] text-[10px] mb-1 font-serif lg:mb-2 lg:pb-2">
+              {item.name}
+            </h1>
+            <p className="lg:text-[15px] md:text-[12px] text-[8px] font-serif text-right">
+              {item.description}
+            </p>
+          </div>
+          <div className="flex-1 flex items-center rounded-xl">
+            <img src={item.image} alt={item.name} className="max-w-full max-h-full p-2 rounded-xl" />
+          </div>
+        </div>
+        {index < filteredData.length - 1 && (
+          <Divider sx={{ 
+            borderColor: "white", 
+            "&::before, &::after": { borderColor: "white" },
+            color: "white",
+            fontSize: '10px'
+          }} variant="middle">SPORTEASE</Divider>
+        )}
+      </Parallax>
+    ))}
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
               </div>
 
             </div>
