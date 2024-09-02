@@ -1,5 +1,13 @@
 # Sports Facility Booking Platform
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Project Description](#project-description)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Installation Guidelines](#installation-guidelines)
+- [Usage](#usage)
+
 
 ## Introduction
 
