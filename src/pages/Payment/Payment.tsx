@@ -109,7 +109,7 @@ const Payment = () => {
                 {bookingInfo.facilityImage && (
                     <img
                         src={bookingInfo.facilityImage}
-                        alt={bookingInfo.facilityName}
+                       
                         className="w-full lg:w-[70%] h-52 object-cover rounded-md mb-4 shadow-lg transform transition-all hover:scale-105 duration-300 ease-in-out"
                     />
                 )}

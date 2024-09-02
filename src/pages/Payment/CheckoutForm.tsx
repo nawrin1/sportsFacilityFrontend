@@ -6,8 +6,26 @@ import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { useBookingInfo } from "../../redux/features/booking/bookingSlice";
 import { toast } from "sonner";
 import Swal from "sweetalert2";
+// import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+// import { SerializedError } from "@reduxjs/toolkit";
 
-
+interface ErrorMessage {
+    path: string;
+    message: string;
+  }
+  
+  interface FetchBaseQueryError {
+    data?: {
+      errorMessages: ErrorMessage[];
+    };
+  }
+  
+//   function isFetchBaseQuery(
+//     error: FetchBaseQueryError | SerializedError
+//   ): error is FetchBaseQueryError {
+//     return (error as FetchBaseQueryError).data?.errorMessages !== undefined;
+//   }
+  
 const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
@@ -51,7 +69,7 @@ const CheckoutForm = () => {
 
 
 
-    const handleSubmit=async(event)=>{
+    const handleSubmit=async(event:React.FormEvent<HTMLFormElement>)=>{
       event.preventDefault()
       const toastId = toast.loading("Booking creating..");
 
@@ -102,17 +120,18 @@ const CheckoutForm = () => {
                 const res = await userBooking(bookingDbInfo);
                 console.log(res);
                 if (res.error) {
-                toast.error(`${res.error.data.errorMessages[0]?.path} ${res.error.data.errorMessages[0]?.message}`, {
-                    id: toastId,
-                    duration: 2000,
-                });
+                    const error = res.error as FetchBaseQueryError; // Type assertion
+                    toast.error(`${error.data?.errorMessages[0]?.path} ${error.data?.errorMessages[0]?.message}`, {
+                        id: toastId,
+                        duration: 2000,
+                    });
                 }
                 if (res.data.success) {
                 toast.success("Booking Created", { id: toastId, duration: 2000 });
                 Swal.fire({
                     title: `Dear ${bookingInfo.UserName}`,
                    
-                    html: `Your booking for  <strong>${bookingInfo.facilityName} </strong> has been confirme and your payment has been done. Your total payable amount is <strong>${price.price}$</strong>. Thank you so much for your booking. Have a nice day!.
+                    html: `Your booking for  <strong>${bookingInfo.facilityName} </strong> has been confirmed and your payment has been done. Your total payable amount is <strong>${price.price}$</strong>. Thank you so much for your booking. Have a nice day!.
                       
                     `,
                     showCloseButton: true,

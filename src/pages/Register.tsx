@@ -20,6 +20,14 @@ interface IFormInput {
 
 }
 
+
+interface FetchBaseQueryError {
+    data?: {
+      message: string;
+    };
+  }
+  
+
 const Register = () => {
     
     const [register] = useRegisterMutation();
@@ -52,8 +60,9 @@ const Register = () => {
 
             }
             else{
-                console.log("entered",res?.error?.data?.message)
-                toast.error(res?.error?.data?.message , { id: toastId, duration: 2000 });
+                // console.log("entered",res?.error?.data?.message)
+                const err=res.error as FetchBaseQueryError
+                toast.error(err?.data?.message , { id: toastId, duration: 2000 });
 
             }
            

@@ -29,6 +29,15 @@ type FormElements = HTMLFormElement & {
   };
 };
 
+
+
+interface FetchBaseQueryError {
+  data?: {
+    message: string;
+  };
+}
+
+
 const style = {
   // eslint-disable-next-line @typescript-eslint/prefer-as-const
   position: 'absolute' as 'absolute',
@@ -166,8 +175,9 @@ wrapperClass=""
             },
           });
         } else if (res.error) {
+          const error = res.error as FetchBaseQueryError
             console.log(res.error)
-          toast.error(res.error.data.message, {
+          toast.error(error.data?.message, {
             style: {
               fontFamily: 'Cormorant Infant, sans-serif',
               color: 'black',
@@ -175,16 +185,7 @@ wrapperClass=""
             },
           });
         }
-        else if (res?.status==400) {
-            console.log(res.error)
-          toast.error(res?.data?.message as string, {
-            style: {
-              fontFamily: 'Cormorant Infant, sans-serif',
-              color: 'black',
-              fontSize: '20px',
-            },
-          });
-        }
+        
       } catch (error) {
         
         toast.error('An unexpected error occurred.', {

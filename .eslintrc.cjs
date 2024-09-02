@@ -13,6 +13,7 @@ module.exports = {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
-    ],'@typescript-eslint/no-explicit-any': 'warn',
+    ],'@typescript-eslint/no-explicit-any': 'warn','@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
   },
 }

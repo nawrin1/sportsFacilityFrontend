@@ -15,6 +15,13 @@ interface IFormInput {
     password: string;
 }
 
+interface FetchBaseQueryError {
+    data?: {
+      message: string;
+    };
+  }
+  
+
 const Login = () => {
     const dispatch=useAppDispatch()
     const [login] = useLoginMutation();
@@ -44,7 +51,10 @@ const Login = () => {
 
         }catch(err){
             // console.log(err.data.message)
-            toast.error(err.data.message, { id: toastId, duration: 2000 });
+            const error=err as FetchBaseQueryError 
+            
+
+            toast.error(error?.data?.message, { id: toastId, duration: 2000 });
 
         }
     };

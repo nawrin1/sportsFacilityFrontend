@@ -22,7 +22,7 @@ import img4 from '../../assets/woman.png'
 
 import img5 from '../../assets/profile.png'
 
-import { useEffect, useState } from "react";
+
 
 
 

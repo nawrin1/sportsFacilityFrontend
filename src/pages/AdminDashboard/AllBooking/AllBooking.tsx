@@ -2,6 +2,35 @@ import { ThreeDots } from 'react-loader-spinner';
 
 import { useGetAllBookingsQuery } from '../../../redux/features/admin/admin.api';
 
+export interface Root {
+  date: string
+  endTime: string
+  facility: Facility
+  isBooked: string
+  payableAmount: number
+  startTime: string
+  user: User
+}
+
+export interface Facility {
+  description: string
+  image: string
+  isDeleted: boolean
+  location: string
+  name: string
+  pricePerHour: number
+  _id: string
+}
+
+export interface User {
+  address: string
+  email: string
+  name: string
+  phone: string
+  role: string
+  _id: string
+}
+
 
 const AllBooking = () => {
     const { data,isLoading } = useGetAllBookingsQuery(undefined, {
@@ -45,8 +74,8 @@ const AllBooking = () => {
             <tbody className="text-white">
               
             {data?.data
-  .filter((each) => each.isBooked !== "canceled")
-  .map((each, idx:number) => (
+  .filter((each:Root) => each.isBooked !== "canceled")
+  .map((each:Root, idx:number) => (
     <tr key={idx} className="border-b-1 border-[#565656] animate-fade-in transition-all duration-300 ease-in-out hover:scale-95 hover:bg-[#2d2d2d]  ">
       <td>
         <div className="font-bold">{each.user.name}</div>

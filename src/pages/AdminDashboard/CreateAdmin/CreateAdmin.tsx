@@ -12,6 +12,12 @@ interface IFormInput {
     address:string;
 
 }
+
+interface FetchBaseQueryError {
+    data?: {
+      message: string;
+    };
+  }
 const CreateAdmin = () => {
     const { control, handleSubmit,formState: { errors }, } = useForm<IFormInput>();
     const [createadmin] = useCreateAdminMutation();
@@ -45,7 +51,8 @@ const CreateAdmin = () => {
 
             }
             if(res.error){
-                toast.error(res.error.data.message, { id: toastId, duration: 2000 });
+                const error= res.error as FetchBaseQueryError
+                toast.error(error.data?.message, { id: toastId, duration: 2000 });
 
             }
         
@@ -53,8 +60,9 @@ const CreateAdmin = () => {
               
 
         }catch(err){
-            // console.log(err.data.message)
-            toast.error(err.data.message, { id: toastId, duration: 2000 });
+            const error=err as FetchBaseQueryError 
+                
+            toast.error(error?.data?.message  , { id: toastId, duration: 2000 });
 
         }
     };

@@ -4,7 +4,7 @@ import img1 from '../../assets/SPORTS EASE (2).png';
 import { useEffect } from 'react';
 import Aos from 'aos';
 import "aos/dist/aos.css";
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 
 

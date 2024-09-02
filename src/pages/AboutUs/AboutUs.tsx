@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { FaBusinessTime, FaStar } from 'react-icons/fa';
 import { IoPeople } from 'react-icons/io5';
 import { IoMdMail } from 'react-icons/io';
-import './AboutUs.css'; // Make sure this file contains scoped CSS
+import './AboutUs.css'; 
 import img1 from '../../assets/markos-mant-F2gTQRAwQ3k-unsplash.jpg';
 import img2 from '../../assets/team1.jpg';
 import img3 from '../../assets/team2.jpg';
